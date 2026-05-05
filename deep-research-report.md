@@ -123,8 +123,7 @@ flowchart TD
 
 The feedback loop should ingest at least five types of outcome signal: analyst triage labels, downstream dashboard or model failures, deployment/change events, source-system incidents, and business-calendar annotations. Without deployment and calendar context, the system will learn to page on launches, month-end closes, and legitimate seasonality. Monte Carlo’s sensitivity settings, WhyLabs’ preview mode, and LinkedIn’s suppression rules all exist because these contextual signals materially reduce false alarms. 
 
-A strong evaluation harness should support **backtesting on historical incidents**, **seeded synthetic drifts**, and **shadow deployment** before any detector is allowed to block pipelines. Gama et al. show that drift evaluation must consider detection delay and false alarms explicitly, and that tuning the threshold trades one against the other. NannyML’s CBPE further shows that if your probabilities are not calibrated, downstream performance estimation can become biased. citeturn29view1turn20view3turn29view0
-
+A strong evaluation harness should support **backtesting on historical incidents**, **seeded synthetic drifts**, and **shadow deployment** before any detector is allowed to block pipelines. Gama et al. show that drift evaluation must consider detection delay and false alarms explicitly, and that tuning the threshold trades one against the other. NannyML’s CBPE further shows that if your probabilities are not calibrated, downstream performance estimation can become biased. 
 The most useful visualisations are time-series overlays of detector score against threshold, followed by quality curves for precision and recall after each tuning cycle. The charts below are **illustrative Mermaid templates** you can wire to your monitoring store.
 
 ```mermaid
@@ -185,8 +184,7 @@ def evaluate_detector(events, labels, max_delay):
 
 ## Tools and ecosystem
 
-The ecosystem now splits into three broad camps: **rule-first libraries** for contracts and static assertions, **monitoring-first libraries** for drift and post-deployment analysis, and **commercial control planes** that combine learned thresholds, lineage, routing, and incident workflows. The most robust programmes usually combine one tool from the first camp with one from the second or third. citeturn20view10turn21view9turn20view1turn19view9turn19view6turn21view7
-
+The ecosystem now splits into three broad camps: **rule-first libraries** for contracts and static assertions, **monitoring-first libraries** for drift and post-deployment analysis, and **commercial control planes** that combine learned thresholds, lineage, routing, and incident workflows. The most robust programmes usually combine one tool from the first camp with one from the second or third. 
 The table below is a **representative comparison**, not an exhaustive market map.
 
 | Tool | Type | Adaptive capability | Best fit | Integrations / constraints | Maturity view | Evidence |
